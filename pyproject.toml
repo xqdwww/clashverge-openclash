@@ -1,0 +1,38 @@
+[project]
+name = "clashverge-openclash"
+version = "0.1.0"
+description = "A safe local CLI for converting supported Clash configurations into OpenClash-ready YAML"
+authors = [{name = "clashverge-openclash contributors"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["PyYAML>=6.0"]
+
+[project.scripts]
+clashverge-openclash = "clashverge_openclash.cli:main"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.0",
+  "pytest-cov>=4.0",
+  "ruff>=0.8",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/clashverge_openclash"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--strict-markers"
+
+[tool.coverage.run]
+source = ["src/clashverge_openclash"]
+branch = true
+
+[tool.ruff]
+target-version = "py39"
+line-length = 100

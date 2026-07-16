@@ -1,0 +1,17 @@
+mixed-port: 7890
+allow-lan: false
+log-level: warning
+proxies:
+  - name: Synthetic Alpha
+    type: ss
+    server: 192.0.2.10
+    port: 443
+    cipher: aes-128-gcm
+    password: synthetic-only
+    udp: true
+  - name: Synthetic Beta
+    type: socks5
+    server: 192.0.2.20
+    port: 1080
+rules:
+  - DOMAIN-SUFFIX,example.test,DIRECT
