@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased
+
+### Security
+
+- Preserve owner-only output permissions without a post-finalization path
+  operation, closing a local replacement race window.
+
+### Changed
+
+- Update and pin the GitHub Actions checkout and Python setup steps.
+
 ## [0.1.0] - 2026-07-16
 
 ### Added

@@ -113,7 +113,6 @@ def atomic_write_yaml(path: Path, document: dict[str, Any], *, force: bool) -> N
             except FileExistsError as exc:
                 raise ConfigError("Output appeared during write; pass --force to replace it") from exc
             Path(temporary_name).unlink()
-        os.chmod(path, 0o600)
     except OSError as exc:
         raise ConfigError(f"Cannot write output: {exc}") from exc
     finally:

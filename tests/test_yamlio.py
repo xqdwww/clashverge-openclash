@@ -52,6 +52,7 @@ def test_atomic_write_is_private_and_requires_force(tmp_path):
         atomic_write_yaml(output, {"mode": "global"}, force=False)
     atomic_write_yaml(output, {"mode": "global"}, force=True)
     assert "global" in output.read_text(encoding="utf-8")
+    assert output.stat().st_mode & 0o777 == 0o600
 
 
 def test_output_symlink_is_refused(tmp_path):
