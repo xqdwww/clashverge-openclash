@@ -10,6 +10,8 @@
 ### Changed
 
 - Update and pin the GitHub Actions checkout and Python setup steps.
+- Make the Ruff rule baseline explicit and bound development tooling below the
+  next major version so compatible upgrades cannot silently redefine CI.
 
 ## [0.1.0] - 2026-07-16
 
